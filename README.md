@@ -1,32 +1,19 @@
-# my-project
+# vue-cli-demo
 
-> A Vue.js project
+为了学习vue,自己做了一份小demo
 
-## Build Setup
+使用vue-cli脚手架搭建，页面内弄包括，
 
-``` bash
-# install dependencies
-npm install
+选项卡切换（包括一级选项卡，二级选项卡）
 
-# serve with hot reload at localhost:8080
-npm run dev
+node.js后台，使用axios进行ajax交互获取天气信息进行展示。
 
-# build for production with minification
-npm run build
+node.js后台、mongodb数据库，进行登录注册功能实现
 
-# build for production and view the bundle analyzer report
-npm run build --report
+node.js后台、mysql数据库，进行表单增删改查功能
 
-# run unit tests
-npm run unit
+`因涉及到后台和数据库，我学习都是在本地搭建的，所以github上没有此服务，只能看看源码了！`
 
-# run e2e tests
-npm run e2e
 
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
