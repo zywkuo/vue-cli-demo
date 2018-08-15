@@ -50,27 +50,27 @@
 
 <script>
 	export default {
-		data() {
-			return {
-				manong : '天气',
-				weatherData : []
-			}
-		},
-		created:function(){
-	        this.goback();
-	    },
-		methods: {
-            goback: function() {
-            	this.$axios.get('https://free-api.heweather.com/s6/weather/forecast?location=北京&key=b01c2b8e38534442b4e4d2c5f392cc1f')
-				.then(function(res){
-				    console.log(res.data.HeWeather6[0].daily_forecast)
-				    this.weatherData = res.data.HeWeather6[0].daily_forecast
-				}.bind(this))
-				.catch(function(err){
-				    console.log(err)
-				}.bind(this))
-			}
-		}
+      data() {
+          return {
+            manong : '天气',
+            weatherData : []
+          }
+      },
+      created:function(){
+            this.goback();
+        },
+      methods: {
+          goback: function() {
+                this.$axios.get('https://free-api.heweather.com/s6/weather/forecast?location=北京&key=b01c2b8e38534442b4e4d2c5f392cc1f')
+                .then(function(res){
+                    console.log(res.data.HeWeather6[0].daily_forecast)
+                    this.weatherData = res.data.HeWeather6[0].daily_forecast
+                }.bind(this))
+                .catch(function(err){
+                    console.log(err)
+                }.bind(this))
+          }
+      }
 	}
 
 

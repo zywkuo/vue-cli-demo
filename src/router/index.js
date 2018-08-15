@@ -6,6 +6,9 @@ import section from '../components/section'
 import footer from '../components/footer'
 import firstchildren from '../components/header/firstchildren'
 import secondchildren from '../components/header/secondchildren'
+import login from '../components/footer/login'
+import enroll from '../components/footer/enroll'
+import mine from '../components/footer/mine'
 
 //构建组件
 Vue.use(Router)
@@ -47,7 +50,29 @@ export default new Router({
     {
       path: '/footer',
       name: 'footer',
-      component: footer
+      component: footer,
+      children:[
+          {
+            path:'login',
+            name:'login',
+            component:login
+          },
+          {
+            path:'enroll',
+            name:'enroll',
+            component:enroll
+          },
+          {
+            path:'',
+            name:'login',
+            component:login
+          }
+      ]
+    },
+    {
+      path:'/footer/mine',
+      name:'mine',
+      component:mine
     },
     {
       path: '/',
