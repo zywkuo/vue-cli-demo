@@ -26,6 +26,7 @@
                 </td>
             </tr>
         </table>
+
         <div id="mask" v-show="showHide">
             <div class="mask">
                 <input type="text" placeholder="姓名" v-model="addSqlData.name">
@@ -36,6 +37,7 @@
                 <button @click="showHide = false">取消</button>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -66,6 +68,7 @@
             },
             addData:function () {
                 if(this.addOrEdit){//添加
+                    this.addSqlData = {};
                     this.addSqlData.id = this.infoData.length + 1;
                     let dataArr = [];
                     dataArr.push(this.addSqlData.id);
@@ -76,7 +79,6 @@
                     this.$axios.post('http://localhost:6688/insertData.json',dataArr)
                         .then(function (res) {
                             this.showHide = false;
-                            this.addSqlData = {};
                             this.selectData();
                             console.log(res.data.explain);
                         }.bind(this))

@@ -14,6 +14,8 @@
 	}
 </script>
 
+
+<!--scoped css只应用当前页面-->
 <style scoped>
 	h1{
 		font-size: 28px;
@@ -21,3 +23,15 @@
 		color: #999;
 	}
 </style>
+
+
+
+
+
+
+
+
+
+
+
+

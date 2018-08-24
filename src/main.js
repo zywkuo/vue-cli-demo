@@ -6,13 +6,34 @@ import router from './router'
 import axios from 'axios'
 Vue.prototype.$axios = axios;
 
+//开启debug模式
+Vue.config.productionTip = true
 
-Vue.config.productionTip = false
+//全局组件注册
+Vue.component('button-counter', {
+    data: function () {
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+})
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
 }).$mount('#app')
+
+
+
+
+
+
+
+
+
+
+
