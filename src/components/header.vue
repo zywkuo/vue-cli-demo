@@ -13,6 +13,10 @@
 
         <router-view></router-view>
 
+        <v-component :time="time" @sendIptVal="childTextFun"></v-component>
+
+        <p>你写的在这里 {{ childText }}</p>
+
         <div>
             启动mongoDB：sudo mongod<br/>
             新建窗口操作数据库：mongo
@@ -28,7 +32,7 @@
 
         <button-counter></button-counter>
 
-        <v-component></v-component>
+        <input type="text">
 
 	</div>
 </template>
@@ -38,20 +42,30 @@
 
     //局部组件
     var ComponentA = {
+
         data: function () {
             return {
-                time: ''
+                // time: ''
+                iptVal: ''
             }
         },
-        created:function () {
-            this.getTime();
-        },
+        // created:function () {
+        //     this.getTime();
+        // },
         methods: {
-            getTime: function(){
-                setInterval( ()=> this.time = new Date().toLocaleTimeString(), 1000 )
+            // getTime: function(){
+            //     setInterval( ()=> this.time = new Date().toLocaleTimeString(), 1000 )
+            // }
+            enter: function () {
+                console.log(this.iptVal)
+                this.$emit('sendIptVal', this.iptVal)
             }
         },
-        template: '<div>{{ time }}</div>'
+        template: `<div>
+                        <div>{{ time }}</div>
+                        <input class="doSome" type="text" placeholder="写点啥吧" v-model='iptVal' @keyup="enter">
+                    </div>`,
+        props: ['time']
     }
 
 
@@ -75,14 +89,22 @@
                     'mame'  : 'zyw',
                     'age'   : '24',
                     'sex'   : '男'
-                }
+                },
+                time: '',
+                childText: ''
             }
         },
         created:function () {
-
+            this.getTime();
         },
         methods: {
-            
+            getTime: function(){
+                setInterval( ()=> this.time = new Date().toLocaleTimeString(), 1000 )
+            },
+            childTextFun: function (textVal) {
+                this.childText = textVal
+            }
+
         }
     }
 </script>
@@ -103,4 +125,10 @@
 	.menu a{
 		padding: 0 20px;
 	}
+    .doSome {
+        width: 100%;
+        height: 40px;
+        border: 1px solid #f60;
+        box-sizing: border-box;
+    }
 </style>
